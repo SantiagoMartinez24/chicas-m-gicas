@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Chicas Mágicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Gestión de Chicas Mágicas</h1>
+    <form id="chicaForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="number" id="edad" placeholder="Edad" required>
+        <input type="text" id="ciudad" placeholder="Ciudad" required>
+        <select id="estado">
+            <option value="Activa">Activa</option>
+            <option value="Desaparecida">Desaparecida</option>
+            <option value="Rescatada">Rescatada</option>
+        </select>
+        <input type="date" id="fechaContrato" required>
+        <button type="submit">Agregar</button>
+    </form>
+    
+    <h2>Filtrar por Estado</h2>
+    <select id="filtroEstado" onchange="filtrarChicas()">
+        <option value="">Todas</option>
+        <option value="Activa">Activa</option>
+        <option value="Desaparecida">Desaparecida</option>
+        <option value="Rescatada">Rescatada</option>
+    </select>
+    
+    <h2>Lista de Chicas Mágicas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+                <th>Estado</th>
+                <th>Fecha Contrato</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaChicas"></tbody>
+    </table>
+    
+    <div id="perfilChica">
+        <h2>Perfil de Chica Mágica</h2>
+        <p><strong>Nombre:</strong> <span id="perfilNombre"></span></p>
+        <p><strong>Edad:</strong> <span id="perfilEdad"></span></p>
+        <p><strong>Ciudad:</strong> <span id="perfilCiudad"></span></p>
+        <p><strong>Estado:</strong>
+            <select id="perfilEstado" onchange="actualizarEstado()">
+                <option value="Activa">Activa</option>
+                <option value="Desaparecida">Desaparecida</option>
+                <option value="Rescatada">Rescatada</option>
+            </select>
+        </p>
+        <p><strong>Fecha de Contrato:</strong> <span id="perfilFecha"></span></p>
+        <button onclick="cerrarPerfil()">Cerrar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
